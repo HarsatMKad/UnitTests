@@ -211,6 +211,12 @@ namespace ConsoleApp1
     public static double[][] InversesMatrix(SquareMatrix MatrixA)
     {
       double[][] Answer = new double[MatrixA.Dimension][];
+
+      for (int RowIndex = 0; RowIndex < MatrixA.Dimension; ++RowIndex)
+      {
+        Answer[RowIndex] = new double[MatrixA.Dimension];
+      }
+
       for (int RowIndex1 = 0; RowIndex1 < MatrixA.Dimension; ++RowIndex1)
       {
         for (int ClolumnIndex = 0; ClolumnIndex < MatrixA.Dimension; ++ClolumnIndex)
@@ -360,6 +366,17 @@ namespace ConsoleApp1
 
         case "invers":
           double[][] invers = SquareMatrix.InversesMatrix(matrix1);
+
+          string a = "";
+          for(int i = 0; i < Dimension; ++i)
+          {
+            for (int j = 0; j < Dimension; ++j)
+            {
+              a += invers[i][j];
+            }
+          }
+          Console.WriteLine(a);
+
           for (int RowIndex1 = 0; RowIndex1 < Dimension; ++RowIndex1)
           {
             for (int ClolumnIndex = 0; ClolumnIndex < Dimension; ++ClolumnIndex)
@@ -417,7 +434,7 @@ namespace ConsoleApp1
           break;
 
         case "equals":
-          Console.WriteLine(Equals(matrix1));
+          Console.WriteLine(Equals(matrix1, matrix2));
           break;
 
         case "hash":
